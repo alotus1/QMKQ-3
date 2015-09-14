@@ -18,6 +18,8 @@
 #import "Patient.h"
 #import "Doctor.h"
 
+#import "AppDelegate.h"
+
 
 // 医生预约的时间间隔
 #define QM_TIMEINTERVAL 30 * 60
@@ -86,6 +88,8 @@
     
     [super viewDidLoad] ;
     
+    // 获取医生信息
+    self.doctor = ((AppDelegate *)[UIApplication sharedApplication].delegate).myself ;
     
     
     [self setupTime] ;
@@ -148,7 +152,6 @@
 
     __weak typeof(self) vc = self ;
     [self.workView setWantNewDateAppointmentInformation:^(NSDate *date) {
-#warning 网络请求date日期下每个时间段的预约信息
         //        NSLog(@"请求 %@每个时间段的预约信息" , date) ;
         [vc sendRequestForHoursAppointmentDataWithDate : date] ;
         self.selectedDate = date ;
@@ -212,8 +215,11 @@
     NSInteger month = [date monthForDate] ;
     NSInteger day = [date dayForDate] ;
     
-    NSString * urlString = [NSString stringWithFormat:QM_URL_DAYAPPOINTEDDATA , year , month , day,@"1" , @"1"] ;
+    
+    NSString * urlString = [NSString stringWithFormat:QM_URL_DAYAPPOINTEDDATA , year , month , day,self.doctor.doctorId , @"1"] ;
 
+    NSLog(@"%@qqqqqqqqqqqqqqqqqqqqqq",urlString);
+    
     [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSError * error ;
@@ -273,7 +279,7 @@
     //此处设置后返回的默认是NSData的数据
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
-    NSString * urlString = [NSString stringWithFormat:QM_URL_MONTHAPPOINTEDDATA , [date yearForDate] , [date monthForDate] ,@"1", @"1"] ;
+    NSString * urlString = [NSString stringWithFormat:QM_URL_MONTHAPPOINTEDDATA , [date yearForDate] , [date monthForDate] ,self.doctor.doctorId, @"1"] ;
     NSLog(@"%@ "  , urlString) ;
     
     [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {

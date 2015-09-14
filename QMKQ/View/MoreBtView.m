@@ -53,6 +53,7 @@
 - (void)layoutSubviews
 {
     double wh = [[self.roundBtCounts objectForKey:@"buttonSize"] floatValue]>0?[[self.roundBtCounts objectForKey:@"buttonSize"] floatValue]:0;
+    // 宽度大于0,且bts中没有按钮的时候
     if (wh&&!(self.bts.count>0)) {
         NSArray*topLeft = [self.roundBtCounts objectForKey:@"topLeft"]?[self.roundBtCounts objectForKey:@"topLeft"]:@[];
         NSArray*topRight = [self.roundBtCounts objectForKey:@"topRight"]?[self.roundBtCounts objectForKey:@"topRight"]:@[];
