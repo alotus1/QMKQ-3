@@ -1,0 +1,83 @@
+//
+//  PrefixHeader.pch
+//  QMClient
+//
+//  Created by Lotus on 15/7/22.
+//  Copyright (c) 2015年 Lotus. All rights reserved.
+//
+
+#ifndef QMClient_PrefixHeader_pch
+#define QMClient_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef __OBJC__
+
+
+// 环信类
+//#import 
+//#import "EMChatManagerDefs.h"
+
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#import "config.h"
+#import "UIColor+CQ.h"
+
+#define QM_USERDEFAULT [NSUserDefaults standardUserDefaults]
+#define QM_SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define QM_SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+#define QM_SCALE_HEIGHT(a) ((a) * QM_SCREEN_HEIGHT / 667)
+#define QM_SCALE_WIDTH(a) ((a) * QM_SCREEN_WIDTH / 375)
+#define QMRGBColor(r,g,b) [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:1.0]
+
+#define RANDCOLOR [UIColor colorWithRed:arc4random_uniform(255) / 255.0 green:arc4random_uniform(255) / 255.0 blue:arc4random_uniform(255) / 255.0 alpha:1.0]
+
+
+#define QM_GETLOGINSTATUS [QM_USERDEFAULT boolForKey:QM_USERDEFAULT_ISLOGIN]
+
+
+
+#define QM_USERDEFAULT_ISLOGIN @"isLogin"
+
+#define QMLog(...) NSLog(__VA_ARGS__)
+
+
+
+#define QM_STRING_LOADSUCCESS @"加载成功"
+#define QM_STRING_LOADFAIL @"加载失败"
+#define QM_STRING_LOADING @"  努力加载中"
+
+// 没有医生诊断的时候显示
+#define QM_STRING_NODOCTORDIAGNOSE @"无"
+
+// 获得到消息的时候发送通知的名称
+#define QM_NEWMESSAGE @"getNewMessage"
+#define QM_DATEFORMATTER @"yyyy-MM-dd HH:mm:ss"
+
+#define QM_FONT_BOLD @"Helvetica-Bold"
+#define QM_FONT_THIN @"Helvetica-Light"
+#define QMBOLDFONT(s) ([UIFont fontWithName:QM_FONT_BOLD size:(s)])
+#define QMTHINFONT(s) ([UIFont fontWithName:QM_FONT_THIN size:(s)])
+
+
+#define COLORTITLE @"626262"
+#define COLORLIGHTGRAY @"959595"
+
+#define COLORDILIVERLINE @"e5e5e5"
+#define COLOR_QMBLUE @"29a6b6"
+
+// 边框颜色
+#define COLOR_BOARD @"bfbfbf"
+
+
+#define QM_NAVITEMPADDING 8
+// 边框的宽度
+#define QM_BOARDWIDTH 0.5
+
+#endif
+
+#endif
