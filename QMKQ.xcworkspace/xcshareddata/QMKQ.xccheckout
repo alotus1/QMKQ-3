@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F0C640AC-9DCD-4F54-AEE6-4F7159993134</string>
+	<key>IDESourceControlProjectName</key>
+	<string>QMKQ</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BC371C25E1D9044C3B7962204AC27AC8C83034D3</key>
+		<string>https://github.com/alotus1/QMKQ-3.git</string>
+		<key>c6aff1d2-5ae7-0a42-9638-f633b93ce544++4138</key>
+		<string>https://192.168.1.100/svn/lianputuao_1.x/client/iphone/trunk/HHuan/HHuan/Class/Network/SBJson</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>QMKQ.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BC371C25E1D9044C3B7962204AC27AC8C83034D3</key>
+		<string>..</string>
+		<key>c6aff1d2-5ae7-0a42-9638-f633b93ce544++4138</key>
+		<string>..QMKQ/Tool/SBJson/</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>c6aff1d2-5ae7-0a42-9638-f633b93ce544++4138</key>
+		<string>https://192.168.1.100/svn/lianputuao_1.x</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/alotus1/QMKQ-3.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BC371C25E1D9044C3B7962204AC27AC8C83034D3</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BC371C25E1D9044C3B7962204AC27AC8C83034D3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>QMKQ%203</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>c6aff1d2-5ae7-0a42-9638-f633b93ce544++4138</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SBJson</string>
+		</dict>
+	</array>
+</dict>
+</plist>
