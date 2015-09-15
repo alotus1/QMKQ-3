@@ -209,7 +209,7 @@
 - (void) sendRequestForHoursAppointmentDataWithDate : (NSDate *) date {
     
     //    QMLog(@"请求%@ 日期下的预约信息   " , date) ;
-    
+    QMLog(@"dayin") ;
     AFHTTPRequestOperationManager * manager = [AFHTTPRequestOperationManager manager] ;
     //此处设置后返回的默认是NSData的数据
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
