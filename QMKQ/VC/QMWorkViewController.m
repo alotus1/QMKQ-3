@@ -197,7 +197,6 @@
     self.workView = workView ;
     
     NSLog(@"123");
-    NSLog(@"344") ;
     
 }
 
