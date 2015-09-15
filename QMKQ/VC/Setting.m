@@ -20,9 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self setLeftButtonItem];
-    self.title=@"设置";
+    self.title = @"设置";
     self.tableView.tableFooterView = [[UIView alloc]init];
     self.tableView.backgroundColor = BgColor;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

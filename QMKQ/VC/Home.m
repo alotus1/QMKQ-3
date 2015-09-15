@@ -25,7 +25,7 @@
 @property (nonatomic, strong) NSString *urlString;//UrlString
 @property (weak, nonatomic) IBOutlet UIImageView *viewDi;//时间底图
 @property (weak, nonatomic) IBOutlet UIImageView *viewLine;//线
-@property (nonatomic, strong) IBOutlet WebImagePage *pageView;
+//@property (nonatomic, strong) IBOutlet WebImagePage *pageView;
 @property (nonatomic, strong) NSArray * homePages;
 
 @end
@@ -41,24 +41,24 @@
     self.viewLine.image = [UIImage imageNamed:@"______"];
     [self setDef];
     
-    [self createScrollView];
+    //[self createScrollView];
     
     //获取首页信息
     [self getHome];
 }
 
-- (void)createScrollView
-{
-    self.pageView.pageBackgroundColor = [UIColor clearColor];
-    self.pageView.pageIndicatorTintColor = NavigationBarBG;
-    self.pageView.currentPageColor = LineColor;
-    __weak Home * weakSelf = self;
-    self.pageView.action = ^(NSInteger index) {
-        WebVC *vc=ViewControllerFromStoryboardWithIdentifier(@"WebVC");
-        vc.homePageInfo = [weakSelf.homePages objectAtIndex:index];
-        [weakSelf.navigationController pushViewController:vc animated:YES];
-    };
-}
+//- (void)createScrollView
+//{
+//    self.pageView.pageBackgroundColor = [UIColor clearColor];
+//    self.pageView.pageIndicatorTintColor = NavigationBarBG;
+//    self.pageView.currentPageColor = LineColor;
+//    __weak Home * weakSelf = self;
+//    self.pageView.action = ^(NSInteger index) {
+//        WebVC *vc=ViewControllerFromStoryboardWithIdentifier(@"WebVC");
+//        vc.homePageInfo = [weakSelf.homePages objectAtIndex:index];
+//        [weakSelf.navigationController pushViewController:vc animated:YES];
+//    };
+//}
 
 
 - (void)getHome
@@ -68,14 +68,14 @@
             NSDictionary*dic = [result objectForKey:@"data"];
             self.urlString = SafeValue([dic objectForKey:@"titlePic"], @"");
             self.tipLabel.text = SafeValue([dic objectForKey:@"title"], @"你好");
-            [self.imgView setImageWithURL:[NSURL URLWithString:self.urlString] placeholderImage:[UIImage imageNamed:@"banner"]];
+            //[self.imgView setImageWithURL:[NSURL URLWithString:self.urlString] placeholderImage:[UIImage imageNamed:@"banner"]];
             [BOffLineCache storeOffLineData:result withKey:HomeDoctorTopStoreKey];
         }else if ([BOffLineCache offLineDataForKey:HomeDoctorTopStoreKey]) {
             // 如果获取出错，并且内存中含有，则从内存获取
             NSDictionary*dic = [[BOffLineCache offLineDataForKey:HomeDoctorTopStoreKey] objectForKey:@"data"];
             self.urlString = SafeValue([dic objectForKey:@"titlePic"], @"");
             self.tipLabel.text = SafeValue([dic objectForKey:@"title"], @"你好");
-            [self.imgView setImageWithURL:[NSURL URLWithString:self.urlString] placeholderImage:[UIImage imageNamed:@"banner"]];
+            //[self.imgView setImageWithURL:[NSURL URLWithString:self.urlString] placeholderImage:[UIImage imageNamed:@"banner"]];
         }
     }];
     [[[QMRequest alloc]init] startWithPackage:nil post:NO apiType:HomeDoctorDown completion:^(BOOL success, NSError *error, NSDictionary *result) {
@@ -89,7 +89,7 @@
             for (NSDictionary*item in self.homePages) {
                 [imageArray addObject:[item objectForKey:@"titlePic"]];
             }
-            self.pageView.imageArray=imageArray;
+            //self.pageView.imageArray=imageArray;
             [BOffLineCache storeOffLineData:result withKey:HomeDoctorDownStoreKey];
         }else if ([BOffLineCache offLineDataForKey:HomeDoctorDownStoreKey]) {
             result = [BOffLineCache offLineDataForKey:HomeDoctorDownStoreKey];
@@ -102,7 +102,7 @@
             for (NSDictionary*item in self.homePages) {
                 [imageArray addObject:[item objectForKey:@"titlePic"]];
             }
-            self.pageView.imageArray=imageArray;
+            //self.pageView.imageArray=imageArray;
         }
     }];
 }

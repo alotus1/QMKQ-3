@@ -69,6 +69,7 @@
     // 图片选择器
     self.picker=[[UIImagePickerController alloc]init];
     self.picker.delegate=self;
+    //self.picker.editing = YES;
     
     // tableView
     self.tableView.backgroundColor=BgColor;
@@ -561,6 +562,7 @@
                             actionHandler:^(LGActionSheet *actionSheet, NSString *title, NSUInteger index) {
                                 if ([title isEqualToString:@"打开相册"]) {
                                     self.picker.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
+                                    self.picker.allowsEditing = YES;
                                 }else {
                                     //检查相机模式是否可用
                                     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
@@ -568,7 +570,9 @@
                                         ALERT1(@"相机设备不能使用");
                                         return;
                                     }
-                                    self.picker.sourceType=UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+                                    // 使用相机允许用户编辑图片
+                                    self.picker.sourceType=UIImagePickerControllerSourceTypeCamera;
+                                    self.picker.allowsEditing = YES;
                                 }
                                 [self presentViewController:self.picker animated:YES completion:nil];
                             }
@@ -576,39 +580,18 @@
                        destructiveHandler:nil] showAnimated:YES completionHandler:nil];
 }
 
-
-#pragma mark - QBImagePickerControllerDelegate
-
-//- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAssets:(NSArray *)assets
-//{
-//    NSLog(@"Selected assets:");
-//    NSLog(@"%@", assets);
-//    
-//    [self dismissViewControllerAnimated:YES completion:NULL];
-//}
-//
-//- (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController
-//{
-//    [self dismissViewControllerAnimated:YES completion:NULL];
-//}
-
 #pragma mark    - imagePicker
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
-{
-    DLog(@"image : %@",image!=nil?@"存在":@"不在");
-    //照相
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo NS_DEPRECATED_IOS(2_0, 3_0){
+    
+    // 用户可以选择裁剪图片
+    
     self.imgView.image=image;
     [self dismissViewControllerAnimated:YES completion:NULL];
+    
+    
 }
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    DLog(@"info : %@",info);
-    //相册
-    UIImage*img=[info objectForKey:UIImagePickerControllerOriginalImage];
-    //本地url UIImagePickerControllerReferenceURL;
-    self.imgView.image=img;
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
+
+
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
