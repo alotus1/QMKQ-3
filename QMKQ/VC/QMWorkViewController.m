@@ -216,15 +216,8 @@
     NSInteger month = [date monthForDate] ;
     NSInteger day = [date dayForDate] ;
     
-<<<<<<< HEAD
-    // 引用Appdelegate  设置模型
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    
-    NSString * urlString = [NSString stringWithFormat:QM_URL_DAYAPPOINTEDDATA , year , month , day,delegate.myself.doctorId , delegate.patient.userId] ;
-=======
     
     NSString * urlString = [NSString stringWithFormat:QM_URL_DAYAPPOINTEDDATA , year , month , day,self.doctor.doctorId , @"1"] ;
->>>>>>> FETCH_HEAD
 
     NSLog(@"%@qqqqqqqqqqqqqqqqqqqqqq",urlString);
     
