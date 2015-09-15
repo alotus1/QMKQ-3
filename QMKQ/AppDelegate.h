@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AFNetworking.h>
 #import "Doctor.h"
+#import "Patient.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -16,6 +17,7 @@
 @property (nonatomic, assign) BOOL hasNetwork;
 
 @property (nonatomic, strong) Doctor * myself;
+@property (nonatomic, strong) Patient * patient;
 
 /**
  * 设置请求状态，如果有网直接请求，如果没网挂起，如果没网又有网请求重新启动

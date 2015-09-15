@@ -17,6 +17,7 @@
 #import "QMAppointmentDay.h"
 #import "Patient.h"
 #import "Doctor.h"
+#import "AppDelegate.h"
 
 
 // 医生预约的时间间隔
@@ -212,8 +213,13 @@
     NSInteger month = [date monthForDate] ;
     NSInteger day = [date dayForDate] ;
     
-    NSString * urlString = [NSString stringWithFormat:QM_URL_DAYAPPOINTEDDATA , year , month , day,@"1" , @"1"] ;
+    // 引用Appdelegate  设置模型
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    
+    NSString * urlString = [NSString stringWithFormat:QM_URL_DAYAPPOINTEDDATA , year , month , day,delegate.myself.doctorId , delegate.patient.userId] ;
 
+    NSLog(@"%@qqqqqqqqqqqqqqqqqqqqqq",urlString);
+    
     [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSError * error ;
