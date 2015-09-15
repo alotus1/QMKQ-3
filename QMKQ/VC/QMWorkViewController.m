@@ -334,6 +334,7 @@
         }
         
         QMLog(@"修改成功") ;
+        QMLog(@"") ;
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         QMLog(@"error %@" , error) ;
